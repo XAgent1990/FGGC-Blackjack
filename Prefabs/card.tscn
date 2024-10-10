@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://opobdma5jnld"]
+
+[ext_resource type="Texture2D" uid="uid://b7s21kyj4en7a" path="res://Textures/Cards.png" id="1_aogy5"]
+
+[node name="Card" type="Sprite3D"]
+pixel_size = 0.0003
+axis = 1
+texture = ExtResource("1_aogy5")
+hframes = 10
+vframes = 7
