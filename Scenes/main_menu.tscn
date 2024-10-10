@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://8uihlo7edhjx"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="BG" type="Node2D" parent="."]
