@@ -1,3 +1,11 @@
+Button
+TextureButton
+TextEdit
+Control
+BoxContainer
+Label
+Container
+Panel
 Node2D
 Node
 CSGBox3D
