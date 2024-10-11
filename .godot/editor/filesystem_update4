@@ -1,3 +1,12 @@
+<<<<<<< Updated upstream
 res://Scenes/main_menu.tscn
 res://Scenes/Main.tscn
 res://Font/Label_Settings_Header.tres
+=======
+res://Scenes/Lars_Test.tscn
+res://Scripts/CameraController.cs
+res://Scripts/Game.cs
+res://Prefabs/card.tscn
+res://Prefabs/chip.tscn
+res://Materials/$100.tres
+>>>>>>> Stashed changes
