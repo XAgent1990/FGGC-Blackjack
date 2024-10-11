@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b01it5pi8rwk3"]
+[gd_scene load_steps=4 format=3 uid="uid://trftjfb688yx"]
 
 [ext_resource type="Script" path="res://Scripts/Game.cs" id="1_yq266"]
-[ext_resource type="Script" path="res://Scripts/CameraController.cs" id="2_qdg8o"]
 [ext_resource type="PackedScene" uid="uid://opobdma5jnld" path="res://Prefabs/card.tscn" id="3_lfcpq"]
 [ext_resource type="PackedScene" uid="uid://ccgjj2scbk88b" path="res://Prefabs/chip.tscn" id="4_051j4"]
 
@@ -11,7 +10,6 @@ script = ExtResource("1_yq266")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
 projection = 1
-script = ExtResource("2_qdg8o")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 5)

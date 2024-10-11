@@ -57,6 +57,7 @@ text = "Connect"
 
 [node name="Button" type="Button" parent="Control/Panel"]
 custom_minimum_size = Vector2(40, 0)
+layout_mode = 0
 offset_left = 868.0
 offset_top = 407.0
 offset_right = 963.0
@@ -65,6 +66,7 @@ text = "Create"
 
 [node name="Button2" type="Button" parent="Control/Panel"]
 custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
 offset_left = 735.0
 offset_top = 462.0
 offset_right = 830.0
