@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccgjj2scbk88b"]
-
-[ext_resource type="Material" uid="uid://b4dedbgf5sg3p" path="res://Materials/$100.tres" id="1_iv4kd"]
-
-[node name="Chip" type="CSGCylinder3D"]
-radius = 0.02
-height = 0.005
-sides = 40
-material = ExtResource("1_iv4kd")

@@ -1,5 +1,4 @@
 ea4bc82a6ad023ab7ee23ee620429895
-<<<<<<< Updated upstream
 ::res://::1728574457
 icon.svg::CompressedTexture2D::486120212590732779::1728519468::1728519504::1::::<><>::
 README.md::TextFile::-1::1728519468::0::1::::<><>::
@@ -11,36 +10,3 @@ OperationNapalm.ttf::FontFile::2931462128990062426::1728574446::1728574457::1:::
 Main.tscn::PackedScene::7138986845013226246::1728574134::0::1::::<><>::uid://cq2i46aee648u::::res://Scenes/Puma_Test.tscn
 main_menu.tscn::PackedScene::2358018232479248829::1728574134::0::1::::<><>::
 Puma_Test.tscn::PackedScene::5952140217331902498::1728522343::0::1::::<><>::
-=======
-::res://::1728584796
-icon.svg::CompressedTexture2D::486120212590732779::1728518554::1728520420::1::::<><>::
-README.md::TextFile::-1::1728518852::0::1::::<><>::
-::res://Materials/::1728584805
-$100.tres::StandardMaterial3D::4428338569871159279::1728584805::0::1::::<><>::uid://b30qd5aqbhau8::::res://Textures/100$.png
-::res://Prefabs/::1728584292
-card.tscn::PackedScene::1014461477084148053::1728584292::0::1::::<><>::uid://b7s21kyj4en7a::::res://Textures/Cards.png
-chip.tscn::PackedScene::4926169292296240647::1728584087::0::1::::<><>::
-::res://Scenes/::1728584087
-Lars_Test.tscn::PackedScene::4195336861556636576::1728584087::0::1::::<><>::res://Scripts/Game.cs<>res://Scripts/CameraController.cs<>uid://opobdma5jnld::::res://Prefabs/card.tscn<>uid://ccgjj2scbk88b::::res://Prefabs/chip.tscn
-Main.tscn::PackedScene::7138986845013226246::1728524427::0::1::::<><>::res://Scripts/CameraController.cs
-Puma_Test.tscn::PackedScene::5952140217331902498::1728523871::0::1::::<><>::
-::res://Scripts/::1728578108
-CameraController.cs::CSharpScript::-1::1728579188::0::1::::<>Camera3D<>::
-Game.cs::CSharpScript::-1::1728527333::0::1::::<>Node3D<>::
-::res://Scripts/FGGC/::1728578108
-Utility.cs::CSharpScript::-1::1728578474::0::1::::<><>::
-::res://Textures/::1728592087
-1.000$.png::CompressedTexture2D::2150232115687398022::1452853420::1728581918::1::::<><>::
-5.000$.png::CompressedTexture2D::5564412816882286412::1452853294::1728581918::1::::<><>::
-7a3584298ef470fe0aafc146c23d34523b045606.png::CompressedTexture2D::2845338060459110238::1728592075::1728592099::1::::<><>::
-10.000$.png::CompressedTexture2D::6872923631923263554::1452853130::1728581918::1::::<><>::
-100$.png::CompressedTexture2D::4404296155104563601::1452853600::1728584587::1::::<><>::
-500$.png::CompressedTexture2D::3856127856432128850::1452853508::1728581918::1::::<><>::
-$10.000.jpg::CompressedTexture2D::5440816625550231943::1452914608::1728581918::1::::<><>::
-$100.jpg::CompressedTexture2D::3123699693256678798::1452912874::1728586772::1::::<><>::
-$500.jpg::CompressedTexture2D::8729455405603898992::1452913574::1728581918::1::::<><>::
-$1000.jpg::CompressedTexture2D::4302133214651153277::1452913884::1728581918::1::::<><>::
-$5000.jpg::CompressedTexture2D::819164159324264061::1452914338::1728581918::1::::<><>::
-Cardback.png::CompressedTexture2D::7051488035731003433::1728581878::1728581918::1::::<><>::
-Cards.png::CompressedTexture2D::4671308831886088452::1728582932::1728583080::1::::<><>::
->>>>>>> Stashed changes
