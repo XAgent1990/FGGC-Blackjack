@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccgjj2scbk88b"]
+[gd_scene load_steps=3 format=3 uid="uid://bw84fndgkknwm"]
 
-[ext_resource type="Material" uid="uid://b4dedbgf5sg3p" path="res://Materials/$100.tres" id="1_iv4kd"]
+[ext_resource type="Material" uid="uid://cfx4f8ktnapl8" path="res://Materials/Chip_TestMaterial.tres" id="1_u3a7p"]
+[ext_resource type="ArrayMesh" uid="uid://c0sxcyhl4f8mc" path="res://Meshes/ChipOBJ.obj" id="2_yijbf"]
 
-[node name="Chip" type="CSGCylinder3D"]
-radius = 0.02
-height = 0.005
-sides = 40
-material = ExtResource("1_iv4kd")
+[node name="Chip" type="MeshInstance3D"]
+transform = Transform3D(7.895, 0, 0, 0, 7.895, 0, 0, 0, 7.895, -11.7177, 0, 0)
+material_override = ExtResource("1_u3a7p")
+mesh = ExtResource("2_yijbf")

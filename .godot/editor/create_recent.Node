@@ -1,4 +1,5 @@
-<<<<<<< Updated upstream
+MeshInstance3D
+Node3D
 Button
 TextureButton
 TextEdit
@@ -12,13 +13,3 @@ Node
 CSGBox3D
 DirectionalLight3D
 Camera3D
-CSGSphere3D
-=======
-CSGCylinder3D
-Sprite3D
-Sprite2D
-DirectionalLight3D
-Camera3D
-CSGSphere3D
-Node
->>>>>>> Stashed changes

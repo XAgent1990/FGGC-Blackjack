@@ -1,8 +1,6 @@
-<<<<<<< Updated upstream
-res://Font
-=======
-res://Materials
 res://Prefabs
+res://Meshes
 res://Textures
->>>>>>> Stashed changes
+res://Materials
+res://Font
 res://Scenes
