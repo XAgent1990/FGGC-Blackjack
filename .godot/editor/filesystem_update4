@@ -1,0 +1,14 @@
+res://Prefabs/chip.tscn
+res://Font/Label_Settings_Header.tres
+res://Prefabs/Chips/fancy_chip_0000001.tscn
+res://Materials/Chip_TestMaterial.tres
+res://Prefabs/Chips/fancy_chip_1000000.tscn
+res://Prefabs/Chips/fancy_chip_0250000.tscn
+res://Prefabs/Chips/fancy_chip_0050000.tscn
+res://Prefabs/Chips/fancy_chip_0010000.tscn
+res://Prefabs/Chips/fancy_chip_0002500.tscn
+res://Prefabs/Chips/fancy_chip_0000500.tscn
+res://Prefabs/Chips/fancy_chip_0000100.tscn
+res://Prefabs/Chips/fancy_chip_0000025.tscn
+res://Prefabs/Chips/fancy_chip_0000005.tscn
+res://Scenes/Lars_Test.tscn

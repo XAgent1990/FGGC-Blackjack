@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt7yceygcuhgu"]
+
+[ext_resource type="Texture2D" uid="uid://ty8sy8024tw6" path="res://Textures/FancyChip0010000.png" id="1_l0a4k"]
+[ext_resource type="ArrayMesh" uid="uid://0vkgqtt53m8k" path="res://Meshes/FancyChip.obj" id="2_i0uqg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6eh1"]
+albedo_texture = ExtResource("1_l0a4k")
+
+[node name="FancyChip0010000" type="MeshInstance3D"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_g6eh1")
+mesh = ExtResource("2_i0uqg")

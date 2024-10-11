@@ -1,6 +1,9 @@
-res://Prefabs
-res://Meshes
+res://Prefabs/Chips
 res://Textures
-res://Materials
+<<<<<<< Updated upstream
 res://Font
+=======
+res://Materials
+res://Prefabs
+>>>>>>> Stashed changes
 res://Scenes

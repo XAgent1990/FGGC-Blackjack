@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://trftjfb688yx"]
+[gd_scene load_steps=3 format=3 uid="uid://trftjfb688yx"]
 
 [ext_resource type="Script" path="res://Scripts/Game.cs" id="1_yq266"]
 [ext_resource type="PackedScene" uid="uid://opobdma5jnld" path="res://Prefabs/card.tscn" id="3_lfcpq"]
-[ext_resource type="PackedScene" uid="uid://ccgjj2scbk88b" path="res://Prefabs/chip.tscn" id="4_051j4"]
 
 [node name="Game" type="Node3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 script = ExtResource("1_yq266")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -16,5 +16,3 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="Card" parent="." instance=ExtResource("3_lfcpq")]
 transform = Transform3D(-0.1, -8.74228e-09, 3.82137e-16, 0, -4.37114e-09, -0.1, 8.74228e-09, -0.1, 4.37114e-09, 1.05419, 0, 0)
-
-[node name="Chip" parent="." instance=ExtResource("4_051j4")]
