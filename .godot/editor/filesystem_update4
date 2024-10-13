@@ -1,9 +1,0 @@
-res://Scenes/startup.tscn
-res://Scripts/CameraController.cs
-res://Scripts/Game.cs
-res://Scripts/Player.cs
-res://Scripts/Startup.cs
-res://Prefabs/Player.tscn
-res://Scripts/PlayerInput.cs
-res://Scenes/Game.tscn
-res://Scenes/Lars_Test.tscn
