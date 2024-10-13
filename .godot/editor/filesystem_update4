@@ -6,3 +6,4 @@ res://Scripts/Startup.cs
 res://Prefabs/Player.tscn
 res://Scripts/PlayerInput.cs
 res://Scenes/Game.tscn
+res://Scenes/Lars_Test.tscn
