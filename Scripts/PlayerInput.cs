@@ -9,12 +9,13 @@ public partial class PlayerInput : MultiplayerSynchronizer
 	[Export] public bool descend = false;
 	[Export] public Vector2 inputDirection = new();
 	[Export] public Vector2 mouseDirection = new();
+	[Export] public bool authorized = false;
 
 	private bool changed;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
-		bool authorized = GetMultiplayerAuthority() == Multiplayer.GetUniqueId();
+		authorized = GetMultiplayerAuthority() == Multiplayer.GetUniqueId();
 		SetProcess(authorized);
 		if(authorized)
 			Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -34,7 +35,7 @@ public partial class PlayerInput : MultiplayerSynchronizer
 
 	public override void _Input(InputEvent @event){
 		base._Input(@event);
-		if(@event.GetType() == typeof(InputEventMouseMotion)){
+		if(authorized && @event.GetType() == typeof(InputEventMouseMotion)){
 			mouseDirection = ((InputEventMouseMotion)@event).Relative;
 			changed = true;
 		}
