@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using Godot;
 
 namespace FGGCBlackJack.Scripts.FGGC
@@ -85,12 +87,20 @@ namespace FGGCBlackJack.Scripts.FGGC
             Y = y;
             Z = z;
         }
+        public override readonly string ToString() => $"({X}, {Y}, {Z})";
         public static readonly Vector3 Zero = new(0, 0, 0);
         public static readonly Vector3 One = new(1, 1, 1);
         public static readonly Vector3 UnitX = new(1, 0, 0);
         public static readonly Vector3 UnitY = new(0, 1, 0);
         public static readonly Vector3 UnitZ = new(0, 0, 1);
 
+        public override readonly bool Equals([NotNullWhen(true)] object obj) =>
+            typeof(Vector3) == obj.GetType() && (Vector3)obj == this;
+
+        public override readonly int GetHashCode() => base.GetHashCode();
+
+        public static bool operator ==(Vector3 v1, Vector3 v2) => v1.X == v2.X && v1.Y == v2.Y && v1.Z == v2.Z;
+        public static bool operator !=(Vector3 v1, Vector3 v2) => !(v1 == v2);
         public static Vector3 operator +(Vector3 v1) => v1;
         public static Vector3 operator -(Vector3 v1) => new(-v1.X, -v1.Y, -v1.Z);
         public static Vector3 operator +(Vector3 v1, Vector3 v2) => 
@@ -103,9 +113,10 @@ namespace FGGCBlackJack.Scripts.FGGC
         public static Vector3 operator /(Vector3 v, float f) => new(v.X / f, v.Y / f, v.Z / f);
 
         public static implicit operator Godot.Vector3(Vector3 v) => new(v.X, v.Y, v.Z);
+        public static implicit operator Vector3(Godot.Vector3 v) => new(v.X, v.Y, v.Z);
 
         public readonly float Length {get => Mathf.Sqrt(X * X + Y * Y + Z * Z);}
-        public readonly Vector3 Normalized {get => this / Length;}
+        public readonly Vector3 Normalized {get => Length == 0 ? Zero : this / Length;}
 
         public readonly Vector3 Abs() => new(X.Abs(), Y.Abs(), Z.Abs());
         public void Normalize() => this = Normalized;
@@ -212,11 +223,11 @@ namespace FGGCBlackJack.Scripts.FGGC
 
         public static void Toggle(this ref bool value) => value = !value;
 
-        public static void Trash(this Node node)
-        {
-            node.GetParent().RemoveChild(node);
-            Game.Instance.trash.AddChild(node);
-        }
+        // public static void Trash(this Node node)
+        // {
+        //     node.GetParent().RemoveChild(node);
+        //     Game.Instance.trash.AddChild(node);
+        // }
         // public static void Trash(this Transform transform) => transform.parent = Game.Instance.trash;
         // public static void Trash(this GameObject gameObject) => gameObject.transform.Trash();
 
@@ -493,6 +504,8 @@ namespace FGGCBlackJack.Scripts.FGGC
             }
             return max;
         }
+
+        public static float Confine(float value, float min, float max) => Max(Min(value, max), min);
 
         public static int Random(int min, int max, int seed) => 
             new RandomNumberGenerator(){Seed = (ulong)seed}.RandiRange(min, max);

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkkmxnhkfq2b6"]
+
+[ext_resource type="Script" path="res://Scripts/Game.cs" id="1_jkdva"]
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_jkdva")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
+
+[node name="PlayerContainer" type="Node3D" parent="."]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Prefabs/Player.tscn")
+spawn_path = NodePath("../PlayerContainer")
+spawn_limit = 8
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+size = Vector3(13, 1, 13)

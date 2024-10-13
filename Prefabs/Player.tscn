@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccq1gjbdq231x"]
+
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_p0lio"]
+[ext_resource type="Script" path="res://Scripts/PlayerInput.cs" id="2_nh4yf"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_6lnut"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:ID")
+properties/2/spawn = true
+properties/2/replication_mode = 0
+properties/3/path = NodePath(".:velocity")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3p6pe"]
+properties/0/path = NodePath(".:boost")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:inputDirection")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:mouseDirection")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:ascend")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath(".:descend")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+
+[node name="Player" type="CharacterBody3D"]
+motion_mode = 1
+script = ExtResource("1_p0lio")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.250116)
+radius = 0.25
+height = 0.5
+cone = true
+
+[node name="ServerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_6lnut")
+
+[node name="PlayerInput" type="MultiplayerSynchronizer" parent="."]
+root_path = NodePath(".")
+replication_config = SubResource("SceneReplicationConfig_3p6pe")
+script = ExtResource("2_nh4yf")
