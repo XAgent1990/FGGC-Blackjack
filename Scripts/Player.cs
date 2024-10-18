@@ -1,8 +1,8 @@
 using Godot;
 using System;
 using static Godot.GD;
-using Vector3 = FGGCBlackJack.Scripts.FGGC.Vector3;
-using Math = FGGCBlackJack.Scripts.FGGC.Math;
+using Vector3 = FGGCBlackJack.Vector3;
+using Math = FGGCBlackJack.Math;
 
 public partial class Player : CharacterBody3D {
 	public const float Speed = 5.0f;
