@@ -8,16 +8,24 @@ using System.Linq;
 public partial class Hand : Node {
 	static readonly Vector3 OFFSET = new(0, 0.0001f, 0.034f);
 	Vector3 nextCardPos = new();
+	Label3D valueText;
+	byte aces = 0;
+	byte cards = 0;
+	bool changed = true;
 
 	public byte Value {
 		get {
-			byte aces = 0;
+			aces = 0;
+			cards = 0;
 			byte value = 0;
-			foreach(Card card in GetChildren().Cast<Card>()) {
-				switch(card.value){
+			foreach (Node node in GetChildren()) {
+				if (node.GetType() != typeof(Card))
+					continue;
+				Card card = (Card)node;
+				switch (card.value) {
 					case CardValue.Ace:
-						aces++;
 						value += 11;
+						aces++;
 						break;
 					case CardValue.Jack:
 					case CardValue.Queen:
@@ -28,8 +36,9 @@ public partial class Hand : Node {
 						value += (byte)card.value;
 						break;
 				}
+				cards++;
 			}
-			while(value > 21 && aces > 0){
+			while (value > 21 && aces > 0) {
 				value -= 10;
 				aces--;
 			}
@@ -37,13 +46,26 @@ public partial class Hand : Node {
 		}
 	}
 
+	public override void _Ready() {
+		valueText = GetChild<Label3D>(0);
+	}
+
+	public override void _Process(double delta) {
+		if (changed) {
+			UpdateText();
+			changed = false;
+		}
+	}
+
 	public void AddCard(Card card) {
+		if(Value > 21) return;
 		AddChild(card);
 		card.Position = nextCardPos;
 		nextCardPos += OFFSET;
+		changed = true;
 	}
 
-	public void AddRandom(){
+	public void AddRandom() {
 		Card card = Instantiate<Card>("res://Prefabs/Card.tscn");
 		AddCard(card);
 		card.SetRandom();
@@ -52,11 +74,24 @@ public partial class Hand : Node {
 
 	public void Reset() {
 		foreach (Node node in GetChildren()) {
-			if(node.GetType() != typeof(Card))
+			if (node.GetType() != typeof(Card))
 				continue;
 			RemoveChild(node);
 			node.QueueFree();
 		}
 		nextCardPos = Vector3.Zero;
+		aces = 0;
+		changed = true;
+	}
+
+	public void UpdateText() {
+		byte v = Value;
+		if(cards == 2 && v == 21){
+			valueText.Text = "BJ";
+			return;
+		}
+		valueText.Text = v.ToString();
+		if (aces > 0)
+			valueText.Text += " / " + (v - 10).ToString();
 	}
 }

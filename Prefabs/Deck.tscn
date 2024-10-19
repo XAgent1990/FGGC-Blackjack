@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://biwdv2norgo0j"]
+
+[ext_resource type="Texture2D" uid="uid://dddycwpc0b17" path="res://Textures/Cards.png" id="1_10s36"]
+[ext_resource type="Script" path="res://Scripts/Deck.cs" id="1_fx4sj"]
+
+[node name="Deck" type="Node3D"]
+script = ExtResource("1_fx4sj")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008, 0)
+size = Vector3(0.062, 0.015, 0.088)
+
+[node name="Card" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.016, 0)
+pixel_size = 0.0003
+axis = 1
+transparent = false
+double_sided = false
+texture = ExtResource("1_10s36")
+hframes = 10
+vframes = 7
+frame = 60
