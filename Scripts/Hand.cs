@@ -13,6 +13,8 @@ public partial class Hand : Node {
 	byte cards = 0;
 	bool changed = true;
 
+	public static Hand NewInstance { get => Instantiate<Hand>("res://Prefabs/Hand.tscn"); }
+
 	public byte Value {
 		get {
 			aces = 0;
@@ -58,7 +60,7 @@ public partial class Hand : Node {
 	}
 
 	public void AddCard(Card card) {
-		if(Value > 21) return;
+		if (Value > 21) return;
 		AddChild(card);
 		card.Position = nextCardPos;
 		nextCardPos += OFFSET;
@@ -86,12 +88,22 @@ public partial class Hand : Node {
 
 	public void UpdateText() {
 		byte v = Value;
-		if(cards == 2 && v == 21){
+		if (cards == 2 && v == 21) {
 			valueText.Text = "BJ";
 			return;
 		}
 		valueText.Text = v.ToString();
 		if (aces > 0)
 			valueText.Text += " / " + (v - 10).ToString();
+	}
+
+	public override string ToString() {
+		string t = $"";
+		foreach (Node node in GetChildren()) {
+			if (node.GetType() != typeof(Card))
+				continue;
+			t += $"{((Card)node).ToString()}\n";
+		}
+		return t;
 	}
 }
