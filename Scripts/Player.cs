@@ -5,8 +5,8 @@ using Vector3 = FGGCBlackJack.Vector3;
 using Math = FGGCBlackJack.Math;
 
 public partial class Player : CharacterBody3D {
-	public const float Speed = 5.0f;
-	public const float MouseSpeed = 0.05f;
+	public const float Speed = 5f;
+	public const float MouseSpeed = 0.1f;
 	public const float DegreesLimit = 85.0f;
 	public PlayerInput input;
 	private long id = 1;

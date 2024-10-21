@@ -238,6 +238,11 @@ namespace FGGCBlackJack {
         }
 
         public static Vector3 Abs(this Vector3 vector) => new(vector.X.Abs(), vector.Y.Abs(), vector.Z.Abs());
+
+        public static void SetActive(this Node3D node, bool active){
+            node.Visible = active;
+            node.SetProcess(active);
+        }
     }
 
     public static class Math {

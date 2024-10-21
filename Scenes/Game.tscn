@@ -1,14 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkkmxnhkfq2b6"]
+[gd_scene load_steps=5 format=3 uid="uid://bkkmxnhkfq2b6"]
 
 [ext_resource type="Script" path="res://Scripts/Game.cs" id="1_jkdva"]
+[ext_resource type="PackedScene" uid="uid://b6tu6m6ydupnh" path="res://Prefabs/Hand.tscn" id="2_eu4ix"]
+[ext_resource type="PackedScene" uid="uid://poelvdv1m3tt" path="res://Meshes/poker table.fbx" id="2_gcfd3"]
+[ext_resource type="PackedScene" uid="uid://ch833rv5qo0k3" path="res://Prefabs/Seat.tscn" id="4_jalul"]
 
 [node name="Game" type="Node3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 script = ExtResource("1_jkdva")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
 
 [node name="PlayerContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.200205, 0)
 
 [node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Prefabs/Player.tscn")
@@ -17,6 +22,36 @@ spawn_limit = 8
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-size = Vector3(13, 1, 13)
+[node name="poker table" parent="World" instance=ExtResource("2_gcfd3")]
+transform = Transform3D(0.147092, 0, 0.0293919, 0, 0.15, 0, -0.0293919, 0, 0.147092, 0, -0.3, 0)
+
+[node name="Dealer" type="Node3D" parent="."]
+
+[node name="Hand" parent="Dealer" instance=ExtResource("2_eu4ix")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Seats" type="Node3D" parent="."]
+
+[node name="Seat1" parent="Seats" instance=ExtResource("4_jalul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.55)
+
+[node name="Seat2" parent="Seats" instance=ExtResource("4_jalul")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.389, 0, 0.389)
+
+[node name="Seat3" parent="Seats" instance=ExtResource("4_jalul")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.55, 0, 0)
+
+[node name="Seat4" parent="Seats" instance=ExtResource("4_jalul")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0.389, 0, -0.389)
+
+[node name="Seat5" parent="Seats" instance=ExtResource("4_jalul")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.55)
+
+[node name="Seat6" parent="Seats" instance=ExtResource("4_jalul")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.389, 0, -0.389)
+
+[node name="Seat7" parent="Seats" instance=ExtResource("4_jalul")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.55, 0, 0)
+
+[node name="Seat8" parent="Seats" instance=ExtResource("4_jalul")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.389, 0, 0.389)
