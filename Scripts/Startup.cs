@@ -6,6 +6,10 @@ public partial class Startup : Node
 {
 	const int PORT = 8080;
 	const int MAX_CLIENTS = 8;
+
+    public static string Username;
+    [Export] LineEdit UsernameLineEdit;
+    [Export] LineEdit IPLineEdit;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
@@ -20,6 +24,7 @@ public partial class Startup : Node
 	}
 
 	public void StartGame(){
+        Username = UsernameLineEdit.Text;
 		Control UI = GetNode<Control>("UI");
 		UI.Hide();
 
@@ -40,7 +45,7 @@ public partial class Startup : Node
 	
 	public void OnJoinPressed(){
 		Print("join pressed");
-		string ip = GetNode<LineEdit>("UI/VBoxContainer/HBoxContainer/IPLineEdit").Text;
+		string ip = IPLineEdit.Text;
 		if(ip == "")
 			ip = "127.0.0.1";
 		ENetMultiplayerPeer peer = new();

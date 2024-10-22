@@ -1,10 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch833rv5qo0k3"]
+[gd_scene load_steps=4 format=3 uid="uid://ch833rv5qo0k3"]
 
 [ext_resource type="Script" path="res://Scripts/Seat.cs" id="1_j0cbv"]
 [ext_resource type="PackedScene" uid="uid://b6tu6m6ydupnh" path="res://Prefabs/Hand.tscn" id="1_w7t8h"]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_0k4al"]
+properties/0/path = NodePath(".:text")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+
 [node name="Seat" type="Node3D"]
 script = ExtResource("1_j0cbv")
+
+[node name="UsernameLabel" type="Label3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0.01, 0.066)
+double_sided = false
+outline_modulate = Color(1, 1, 1, 1)
+font_size = 80
+outline_size = 5
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="UsernameLabel"]
+replication_config = SubResource("SceneReplicationConfig_0k4al")
 
 [node name="Hand" parent="." instance=ExtResource("1_w7t8h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.042, 0, 0)

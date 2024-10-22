@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/Startup.cs" id="1_6v4ro"]
 
-[node name="Startup" type="Node"]
+[node name="Startup" type="Node" node_paths=PackedStringArray("UsernameLineEdit", "IPLineEdit")]
 script = ExtResource("1_6v4ro")
+UsernameLineEdit = NodePath("UI/VBoxContainer/UsernameLineEdit")
+IPLineEdit = NodePath("UI/VBoxContainer/HBoxContainer/IPLineEdit")
 
 [node name="GameContainer" type="Node" parent="."]
 
@@ -33,6 +35,12 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="UsernameLineEdit" type="LineEdit" parent="UI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+placeholder_text = "Username"
 
 [node name="HostButton" type="Button" parent="UI/VBoxContainer"]
 layout_mode = 2
