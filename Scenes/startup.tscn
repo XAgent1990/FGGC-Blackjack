@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/Startup.cs" id="1_6v4ro"]
 
-[node name="Startup" type="Node" node_paths=PackedStringArray("UsernameLineEdit", "IPLineEdit")]
+[node name="Startup" type="Node" node_paths=PackedStringArray("UsernameLineEdit", "IPLineEdit", "ColorPB")]
 script = ExtResource("1_6v4ro")
 UsernameLineEdit = NodePath("UI/VBoxContainer/HBoxContainer2/UsernameLineEdit")
 IPLineEdit = NodePath("UI/VBoxContainer/HBoxContainer/IPLineEdit")
+ColorPB = NodePath("UI/VBoxContainer/HBoxContainer2/ColorPickerButton")
 
 [node name="GameContainer" type="Node" parent="."]
 

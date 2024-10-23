@@ -14,10 +14,10 @@ public partial class Game : Node3D {
 
 		Print("Game ready");
 
-		if (Multiplayer.IsServer())
-			GetNode<Label3D>($"Seats/Seat1/UsernameLabel").Text = Startup.Username;
-		else
-			RpcId(1, "HelloIJoined", Startup.Username);
+		if (!OS.HasFeature("dedicated_server"))
+			AddPlayer(1);
+
+		RpcId(1, "HelloIJoined", Startup.Username, Startup.Color);
 
 		if (!Multiplayer.IsServer())
 			return;
@@ -27,9 +27,6 @@ public partial class Game : Node3D {
 
 		foreach (int id in Multiplayer.GetPeers())
 			AddPlayer(id);
-
-		if (!OS.HasFeature("dedicated_server"))
-			AddPlayer(1);
 	}
 
 	public void AddPlayer(long id) {
@@ -40,9 +37,11 @@ public partial class Game : Node3D {
 		playerContainer.AddChild(player, true);
 	}
 
-	[Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-	public void HelloIJoined(string name) {
-		GetNode<Label3D>($"Seats/Seat{playerContainer.GetChildCount()}/UsernameLabel").Text = name;
+	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
+	public void HelloIJoined(string name, Color color) {
+		Label3D label = GetNode<Label3D>($"Seats/Seat{playerContainer.GetChildCount()}/UsernameLabel");
+		label.Text = name;
+		label.Modulate = label.OutlineModulate = color;
 	}
 
 	public void DeletePlayer(long id) {
