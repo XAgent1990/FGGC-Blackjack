@@ -4,7 +4,7 @@
 
 [node name="Startup" type="Node" node_paths=PackedStringArray("UsernameLineEdit", "IPLineEdit")]
 script = ExtResource("1_6v4ro")
-UsernameLineEdit = NodePath("UI/VBoxContainer/UsernameLineEdit")
+UsernameLineEdit = NodePath("UI/VBoxContainer/HBoxContainer2/UsernameLineEdit")
 IPLineEdit = NodePath("UI/VBoxContainer/HBoxContainer/IPLineEdit")
 
 [node name="GameContainer" type="Node" parent="."]
@@ -36,11 +36,20 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UsernameLineEdit" type="LineEdit" parent="UI/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="UsernameLineEdit" type="LineEdit" parent="UI/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 25
 placeholder_text = "Username"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="UI/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+color = Color(0, 0, 1, 1)
 
 [node name="HostButton" type="Button" parent="UI/VBoxContainer"]
 layout_mode = 2
